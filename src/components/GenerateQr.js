@@ -2,25 +2,29 @@ import React, { Component } from "react";
 import QRCode from "qrcode.react";
 
 export class GenerateQr extends Component {
+  constructor(props) {
+    super(props);
+    this.data = null
+  }
   state = {
     name: "",
     lastName: "",
     certificate: "",
-    ready: false
   };
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value, ready: false });
+    this.setState({ [event.target.name]: event.target.value});
   };
   handleSubmit = event => {
     event.preventDefault();
+    this.data = {...this.state};
     this.setState({
-      ready: true,
-      name: "",
-      lastName: "",
-      certificate: ""
-    });
+      name: '',
+      lastName: '',
+      certificate: ''
+    })
   };
   render() {
+    console.log('this.data', this.data)
     return (
       <>
         <form className='form'
@@ -60,11 +64,11 @@ export class GenerateQr extends Component {
             style={{ margin: "auto", maxWidth: 200 }}
           />
         </form>
-        {this.state.ready && (
+        {this.data && (
             <>
             <p>Now you can print the QR and test it by using "Scan QR code" button</p>
           <QRCode
-            value={JSON.stringify(this.state)}
+            value={JSON.stringify(this.data)}
             renderAs='svg'
           />
           </>
