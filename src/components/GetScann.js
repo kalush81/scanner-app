@@ -6,10 +6,9 @@ export default class GetScan extends Component {
     super(props);
     this.state = {
       delay: 100,
-      result: "No result"
+      result: null
     };
 
-    //this.handleScan = this.handleScan.bind(this)
   }
   handleScan = data => {
     this.setState({
@@ -19,6 +18,9 @@ export default class GetScan extends Component {
   handleError = err => {
     console.error(err);
   };
+  resetResult = () => {
+    this.setState({result: null})
+  }
   render() {
     const previewStyle = {
       margin: "auto auto",
@@ -29,19 +31,22 @@ export default class GetScan extends Component {
 
     return (
       <div>
-        <QrReader
+        { !this.state.result && <QrReader
           legacyMode={false}
           facingMode="rear"
           delay={this.state.delay}
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
-        />
-        <p>
-          {this.state.result.name}
-          {this.state.result.lastName}
-          {this.state.result.certificate}
-        </p>
+        />}
+        {this.state.result && (
+          <>
+            <p>{this.state.result.name}</p>
+            <p>{this.state.result.lastName}</p>
+            <p>{this.state.result.certificate}</p>
+            <button onClick={this.resetResult}>Generate new qr code</button>
+          </>
+        )}
       </div>
     );
   }
