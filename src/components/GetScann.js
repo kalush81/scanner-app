@@ -24,7 +24,7 @@ export default class GetScan extends Component {
       margin: 'auto auto',  
       height: '330px',
       width: "330px",
-      objectFit: 'fill'
+      objectFit: 'cover'
     }
  
     return(
