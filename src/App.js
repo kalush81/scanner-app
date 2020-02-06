@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import GetScan from './components/GetScann';
+import GenerateQr from './components/GenerateQr';
 import './App.css';
+import styles from './styles.module.css'
 
 function App() {
+  const [state, setstate] = useState({generate: false, scann:false})
+  const handleClickGen = () => {
+    setstate({generate: true, scann: false})
+  }
+  const handleClickScan = () => {
+    setstate({scann: true, generate: false})
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button className={styles.button} onClick={handleClickGen}>Generate qr code</button>
+      <button className={styles.button} onClick={handleClickScan}>Scann qr code</button>
+      {state.generate && <GenerateQr />}
+      {state.scann && <GetScan />}
     </div>
   );
 }
