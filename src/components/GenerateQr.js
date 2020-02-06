@@ -23,7 +23,7 @@ export class GenerateQr extends Component {
   render() {
     return (
       <>
-        <form
+        <form className='form'
           onSubmit={this.handleSubmit}
           style={{ display: "flex", flexDirection: "column", margin: 50 }}
         >

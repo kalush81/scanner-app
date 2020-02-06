@@ -38,3 +38,10 @@
     transform: rotate(360deg);
   }
 }
+.form {
+  border: 1px solid blueviolet;
+  padding: 20px;
+}
+.form input {
+  margin: 10px;
+}
