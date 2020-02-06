@@ -61,10 +61,13 @@ export class GenerateQr extends Component {
           />
         </form>
         {this.state.ready && (
+            <>
+            <p>Now you can print the QR and test it by using "Scan QR code" button</p>
           <QRCode
             value={JSON.stringify(this.state)}
             renderAs='svg'
           />
+          </>
         )}
       </>
     );
