@@ -29,6 +29,7 @@ export default class GetScan extends Component {
     return(
       <div>
         <QrReader
+          facingMode='rear'
           delay={this.state.delay}
           style={previewStyle}
           onError={this.handleError}
