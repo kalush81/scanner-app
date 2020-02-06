@@ -9,7 +9,7 @@ export default class GetScan extends Component {
       result: 'No result',
     }
  
-    this.handleScan = this.handleScan.bind(this)
+    //this.handleScan = this.handleScan.bind(this)
   }
   handleScan = (data) =>{
     this.setState({
@@ -22,13 +22,15 @@ export default class GetScan extends Component {
   render(){
     const previewStyle = {
       margin: 'auto auto',  
-      height: 140,
-      width: 220,
+      height: '330px',
+      width: "330px",
+      objectFit: 'fill'
     }
  
     return(
       <div>
         <QrReader
+          legacyMode={false}
           facingMode='rear'
           delay={this.state.delay}
           style={previewStyle}
