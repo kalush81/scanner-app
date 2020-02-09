@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Biryani:600&display=swap');
 .App {
   text-align: center;
-  background-color: aquamarine;
-  height: 100vh;
+  background-color: #eee;
+  min-height: 100vh;
+  font-family: 'Tenor Sans', sans-serif;
 }
 
 .App-logo {
@@ -39,9 +42,37 @@
   }
 }
 .form {
-  border: 1px solid blueviolet;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  box-shadow: 1px 1px 50px 1px rgba(0, 0, 0, 0.16);
   padding: 20px;
+  /* transition: all 0.2s ease-in; */
+}
+.form input:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 .form input {
-  margin: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 0px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+.form input:focus {
+  outline: none;
+}
+input#testId {
+  background-color: red;
+  margin: 20px auto;
+  max-width: 200px;
+  /*font-family: 'Biryani', sans-serif;
+  box-shadow: none;
+  width: 130px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  box-shadow: 4px 4px 5px -2px rgba(0, 0, 0, 0.75); */
 }

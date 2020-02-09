@@ -59,15 +59,17 @@ export class GenerateQr extends Component {
             />
           </label>
           <input
+            id='testId'
             type="submit"
             value="Generate QR"
-            style={{ margin: "auto", maxWidth: 200 }}
           />
         </form>
         {this.data && (
             <>
             <p>Now you can print the QR and test it by using "Scan QR code" button</p>
           <QRCode
+          includeMargin={true}
+            size={265}
             value={JSON.stringify(this.data)}
             renderAs='svg'
           />

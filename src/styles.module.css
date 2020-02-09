@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap&subset=latin-ext');
+
 .button {
+    font-family: 'Tenor Sans', sans-serif;
     width: 130px;
     height: 30px;
     border: 1px solid rgba(0,0,0,0.75);
