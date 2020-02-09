@@ -24,8 +24,8 @@ export class GenerateQr extends Component {
     });
   };
   render() {
-    let isDisabled = this.state.name === '' && this.state.lastName === '' && this.state.certificate === '';
-    console.log("this.data", this.data);
+    const { name, lastName, certificate } = this.state;
+    let isDisabled = name === "" && lastName === "" && certificate === "";
     return (
       <>
         <form
@@ -34,9 +34,9 @@ export class GenerateQr extends Component {
           style={{
             display: "flex",
             flexDirection: "column",
-            margin: 50,
-            paddingLeft: 150,
-            paddingRight: 150
+            margin: '50px auto',
+            paddingLeft: '10%',
+            paddingRight: '10%'
           }}
         >
           <label>
@@ -44,7 +44,7 @@ export class GenerateQr extends Component {
             <input
               type="text"
               name="name"
-              value={this.state.name}
+              value={name}
               onChange={this.handleChange}
             />
           </label>
@@ -53,7 +53,7 @@ export class GenerateQr extends Component {
             <input
               type="text"
               name="lastName"
-              value={this.state.lastName}
+              value={lastName}
               onChange={this.handleChange}
             />
           </label>
@@ -63,10 +63,15 @@ export class GenerateQr extends Component {
               type="text"
               name="certificate"
               onChange={this.handleChange}
-              value={this.state.certificate}
+              value={certificate}
             />
           </label>
-          <input id="testId" type="submit" value="Generate QR" disabled={isDisabled} />
+          <input
+            id="testId"
+            type="submit"
+            value="Generate QR"
+            disabled={isDisabled}
+          />
         </form>
         {this.data && (
           <>
