@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Biryani:600&display=swap');
 .App {
   text-align: center;
-  background-color: #eee;
+  background-color: #ffffff;
   min-height: 100vh;
   font-family: 'Tenor Sans', sans-serif;
 }
@@ -41,38 +41,49 @@
     transform: rotate(360deg);
   }
 }
+
 .form {
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
   border-radius: 3px;
-  box-shadow: 1px 1px 50px 1px rgba(0, 0, 0, 0.16);
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.06);
   padding: 20px;
   /* transition: all 0.2s ease-in; */
 }
 .form input:hover {
   background: rgba(0, 0, 0, 0.05);
 }
+.form label {
+  margin-bottom: 30px;
+}
 .form input {
+  line-height: 10px;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  font-size: 1rem;
+  padding: 6px 10px;
+  margin: 2px 0;
   display: inline-block;
   border: 0px solid #ccc;
-  border-radius: 4px;
   box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
   transition: all 0.2s ease-in-out;
 }
 .form input:focus {
   outline: none;
 }
 input#testId {
-  background-color: red;
+  background-color: #FF4136;
   margin: 20px auto;
   max-width: 200px;
+  border-radius: 5px;
+  height: 30px;
   /*font-family: 'Biryani', sans-serif;
   box-shadow: none;
   width: 130px;
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.75);
-  border-radius: 5px;
+  
   box-shadow: 4px 4px 5px -2px rgba(0, 0, 0, 0.75); */
+}
+input#testId:hover{
+  background-color: rgba(255, 0, 0, 0.50)
 }

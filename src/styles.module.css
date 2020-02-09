@@ -9,3 +9,9 @@
     border-radius: 5px;
     box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.75);
 }
+.button:focus {
+    outline: none;
+}
+.button:hover {
+    background: rgba(0,0,0,0.05);
+}

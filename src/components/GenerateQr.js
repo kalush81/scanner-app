@@ -4,32 +4,40 @@ import QRCode from "qrcode.react";
 export class GenerateQr extends Component {
   constructor(props) {
     super(props);
-    this.data = null
+    this.data = null;
   }
   state = {
     name: "",
     lastName: "",
-    certificate: "",
+    certificate: ""
   };
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value});
+    this.setState({ [event.target.name]: event.target.value });
   };
   handleSubmit = event => {
     event.preventDefault();
-    this.data = {...this.state};
+    this.data = { ...this.state };
     this.setState({
-      name: '',
-      lastName: '',
-      certificate: ''
-    })
+      name: "",
+      lastName: "",
+      certificate: ""
+    });
   };
   render() {
-    console.log('this.data', this.data)
+    let isDisabled = this.state.name === '' && this.state.lastName === '' && this.state.certificate === '';
+    console.log("this.data", this.data);
     return (
       <>
-        <form className='form'
+        <form
+          className="form"
           onSubmit={this.handleSubmit}
-          style={{ display: "flex", flexDirection: "column", margin: 50 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 50,
+            paddingLeft: 150,
+            paddingRight: 150
+          }}
         >
           <label>
             Name:
@@ -58,21 +66,20 @@ export class GenerateQr extends Component {
               value={this.state.certificate}
             />
           </label>
-          <input
-            id='testId'
-            type="submit"
-            value="Generate QR"
-          />
+          <input id="testId" type="submit" value="Generate QR" disabled={isDisabled} />
         </form>
         {this.data && (
-            <>
-            <p>Now you can print the QR and test it by using "Scan QR code" button</p>
-          <QRCode
-          includeMargin={true}
-            size={265}
-            value={JSON.stringify(this.data)}
-            renderAs='svg'
-          />
+          <>
+            <p>
+              Now you can print the QR and test it by using "Scan QR code"
+              button
+            </p>
+            <QRCode
+              includeMargin={true}
+              size={265}
+              value={JSON.stringify(this.data)}
+              renderAs="svg"
+            />
           </>
         )}
       </>
