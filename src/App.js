@@ -1,9 +1,10 @@
 import React, {useState, useRef, useEffect} from 'react';
 import GetScan from './components/GetScann';
 import GenerateQr from './components/GenerateQr';
+import Modal from 'react-modal';
 import './App.css';
 import styles from './styles.module.css';
-import TestUseState from './components/testUseState';
+
 
 function App() {
   const parentRef = useRef();
@@ -18,6 +19,9 @@ function App() {
   }
   return (
     <div className="App">
+      <Modal isOpen={state.scann}>
+        <h3>I am a modal at app component</h3>
+      </Modal>
       <button className={styles.button} onClick={handleClickGen}>Generate qr code</button>
       <button className={styles.button} onClick={handleClickScan}>Scann qr code</button>
       {state.generate && <GenerateQr ref={parentRef}/>}

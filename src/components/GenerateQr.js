@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import QRCode from "qrcode.react";
+import Modal from "react-modal";
 
 export class GenerateQr extends PureComponent {
   constructor(props) {
@@ -8,6 +9,7 @@ export class GenerateQr extends PureComponent {
     this.inputRef = React.createRef();
   }
   state = {
+    getModal: false,
     name: "",
     lastName: "",
     certificate: ""
@@ -18,10 +20,12 @@ export class GenerateQr extends PureComponent {
   handleSubmit = event => {
     event.preventDefault();
     this.data = { ...this.state };
+
     this.setState({
       name: "",
       lastName: "",
-      certificate: ""
+      certificate: "",
+      getModal: true
     });
   };
   focusInput() {
@@ -30,17 +34,32 @@ export class GenerateQr extends PureComponent {
   render() {
     const { name, lastName, certificate } = this.state;
     let isDisabled = name === "" && lastName === "" && certificate === "";
+    console.log(this.data);
     return (
       <>
+        <Modal isOpen={this.state.getModal}>
+          <h2>I am modal from generateqr component</h2>
+          <p>Your data:</p>
+          {this.data && (
+            <>
+              <p>{this.data.name}</p>
+              <p>{this.data.lastName}</p>
+              <p>{this.data.certificate}</p>
+              <button
+                onClick={() => this.setState({ getModal: false })}
+              >Confirm</button>
+            </>
+          )}
+        </Modal>
         <form
           className="form"
           onSubmit={this.handleSubmit}
           style={{
             display: "flex",
             flexDirection: "column",
-            margin: '50px auto',
-            paddingLeft: '10%',
-            paddingRight: '10%'
+            margin: "50px auto",
+            paddingLeft: "10%",
+            paddingRight: "10%"
           }}
         >
           <label>
