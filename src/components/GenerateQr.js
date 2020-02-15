@@ -38,7 +38,6 @@ export class GenerateQr extends PureComponent {
     return (
       <>
         <Modal isOpen={this.state.getModal}>
-          <h2>I am modal from generateqr component</h2>
           <p>Your data:</p>
           {this.data && (
             <>
