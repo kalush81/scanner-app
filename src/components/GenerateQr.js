@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import QRCode from "qrcode.react";
 
-export class GenerateQr extends Component {
+export class GenerateQr extends PureComponent {
   constructor(props) {
     super(props);
     this.data = null;
+    this.inputRef = React.createRef();
   }
   state = {
     name: "",
@@ -23,6 +24,9 @@ export class GenerateQr extends Component {
       certificate: ""
     });
   };
+  focusInput() {
+    this.inputRef.current.focus();
+  }
   render() {
     const { name, lastName, certificate } = this.state;
     let isDisabled = name === "" && lastName === "" && certificate === "";
@@ -42,6 +46,7 @@ export class GenerateQr extends Component {
           <label>
             Name:
             <input
+              ref={this.inputRef}
               type="text"
               name="name"
               value={name}
