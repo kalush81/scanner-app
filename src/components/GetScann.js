@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import ReactDOM from 'react-dom';
 import QrReader from "react-qr-scanner";
 
 export default class GetScan extends Component {
@@ -8,7 +9,7 @@ export default class GetScan extends Component {
       delay: 100,
       result: null
     };
-
+    this.abortController =  new AbortController()
   }
   handleScan = data => {
     this.setState({
@@ -20,6 +21,10 @@ export default class GetScan extends Component {
   };
   resetResult = () => {
     this.setState({result: null})
+  }
+  componentWillUnmount() {
+
+    this.abortController.abort()
   }
   render() {
     const previewStyle = {

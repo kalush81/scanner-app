@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Tenor+Sans&display=swap&subset=latin-ext');
 
+.Navi {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+}
 .button {
     font-family: 'Tenor Sans', sans-serif;
     width: 130px;
     height: 30px;
-    border: 1px solid rgba(0,0,0,0.75);
+    border: 3px solid rgba(0,0,0,0.75);
     margin: 20px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 5px -2px rgba(0,0,0,0.75);
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.35);
 }
 .button:focus {
     outline: none;

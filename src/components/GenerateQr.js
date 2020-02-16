@@ -2,6 +2,8 @@ import React, { PureComponent } from "react";
 import QRCode from "qrcode.react";
 import Modal from "react-modal";
 
+Modal.setAppElement('#root');
+
 export class GenerateQr extends PureComponent {
   constructor(props) {
     super(props);
@@ -34,7 +36,6 @@ export class GenerateQr extends PureComponent {
   render() {
     const { name, lastName, certificate } = this.state;
     let isDisabled = name === "" && lastName === "" && certificate === "";
-    console.log(this.data);
     return (
       <>
         <Modal isOpen={this.state.getModal}>
@@ -97,7 +98,7 @@ export class GenerateQr extends PureComponent {
           />
         </form>
         {this.data && (
-          <>
+          <div className='QrCodeResult'>
             <p>
               Now you can print the QR and test it by using "Scan QR code"
               button
@@ -108,7 +109,7 @@ export class GenerateQr extends PureComponent {
               value={JSON.stringify(this.data)}
               renderAs="svg"
             />
-          </>
+          </div>
         )}
       </>
     );
