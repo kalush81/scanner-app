@@ -102,7 +102,7 @@ input#testId:hover{
   width: 100%;
   padding-bottom: 10px;
   background-color: #FF4136;
-  opacity: 1;
+  /* opacity: 0.2; */
   transition: all 0.5s ease-in-out;
 }
 

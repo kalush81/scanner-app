@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import GetScan from "./components/GetScann";
 import GenerateQr from "./components/GenerateQr";
+import CheckWhatInDB from './components/CheckWhatInDB';
 import Nav from "./components/Nav";
 import "./App.css";
 import styles from "./styles.module.css";
@@ -28,8 +29,9 @@ function App() {
         </button>
       </div>
       </Nav>
-      {state.generate && <GenerateQr ref={parentRef} />}
-      {state.scann && <GetScan />}
+      {/* {state.generate && <GenerateQr ref={parentRef} />}
+      {state.scann && <GetScan />} */}
+      <CheckWhatInDB />
     </div>
   );
 }

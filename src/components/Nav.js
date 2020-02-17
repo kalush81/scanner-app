@@ -27,7 +27,7 @@ export default class Nav extends PureComponent {
         className='Navig'
         style={{
           position: `${up ? 'null' : 'sticky'}`,
-          opacity: `${up ? 0.2 : 1}`,
+          opacity: `${up ? 0.2 : 0.8}`,
           top: `${up ? '-100px' : 0}`
         }}
       >{this.props.children}</div>
