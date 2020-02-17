@@ -2,9 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import GetScan from "./components/GetScann";
 import GenerateQr from "./components/GenerateQr";
 import CheckWhatInDB from './components/CheckWhatInDB';
+import GetAllPosts from './components/GetAllPosts';
 import Nav from "./components/Nav";
 import "./App.css";
 import styles from "./styles.module.css";
+import { Route } from "react-router-dom";
 
 function App() {
   const parentRef = useRef();
@@ -29,9 +31,10 @@ function App() {
         </button>
       </div>
       </Nav>
-      {/* {state.generate && <GenerateQr ref={parentRef} />}
-      {state.scann && <GetScan />} */}
-      <CheckWhatInDB />
+      {state.generate && <GenerateQr ref={parentRef} />}
+      {state.scann && <GetScan />}
+      <Route exact path="/" component={CheckWhatInDB} />
+      <Route exact path="/all-posts" component={GetAllPosts} />
     </div>
   );
 }

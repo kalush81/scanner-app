@@ -1,8 +1,9 @@
 import React, { PureComponent } from "react";
 import QRCode from "qrcode.react";
 import Modal from "react-modal";
+import axios from 'axios';
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 export class GenerateQr extends PureComponent {
   constructor(props) {
@@ -33,6 +34,18 @@ export class GenerateQr extends PureComponent {
   focusInput() {
     this.inputRef.current.focus();
   }
+  handleCLick = () => {
+    this.setState({ getModal: false })
+    console.log('data to be send', this.data)
+    axios.post("https://myjson-demo.herokuapp.com/post", this.data)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+  }
   render() {
     const { name, lastName, certificate } = this.state;
     let isDisabled = name === "" && lastName === "" && certificate === "";
@@ -45,9 +58,9 @@ export class GenerateQr extends PureComponent {
               <p>{this.data.name}</p>
               <p>{this.data.lastName}</p>
               <p>{this.data.certificate}</p>
-              <button
-                onClick={() => this.setState({ getModal: false })}
-              >Confirm</button>
+              <button onClick={this.handleCLick}>
+                Confirm
+              </button>
             </>
           )}
         </Modal>
@@ -65,6 +78,7 @@ export class GenerateQr extends PureComponent {
           <label>
             Name:
             <input
+              maxLength="20"
               ref={this.inputRef}
               type="text"
               name="name"
@@ -75,6 +89,7 @@ export class GenerateQr extends PureComponent {
           <label>
             Last Name:
             <input
+              maxLength="20"
               type="text"
               name="lastName"
               value={lastName}
@@ -84,6 +99,7 @@ export class GenerateQr extends PureComponent {
           <label>
             Certificate:
             <input
+              maxLength="20"
               type="text"
               name="certificate"
               onChange={this.handleChange}
@@ -98,7 +114,7 @@ export class GenerateQr extends PureComponent {
           />
         </form>
         {this.data && (
-          <div className='QrCodeResult'>
+          <div className="QrCodeResult">
             <p>
               Now you can print the QR and test it by using "Scan QR code"
               button
