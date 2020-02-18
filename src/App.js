@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import "./App.css";
 import styles from "./styles.module.css";
 import { Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function App() {
   const parentRef = useRef();
@@ -23,15 +24,15 @@ function App() {
     <div className="App">
       <Nav>
       <div className={styles.Navi}>
-        <button className={styles.button} onClick={handleClickGen}>
+        <Link to='/'><button className={styles.button} onClick={handleClickGen}>
           Generate qr code
-        </button>
+        </button></Link>
         <button className={styles.button} onClick={handleClickScan}>
           Scann qr code
         </button>
       </div>
       </Nav>
-      {state.generate && <GenerateQr ref={parentRef} />}
+      {state.generate && <GenerateQr ref={parentRef}/>}
       {state.scann && <GetScan />}
       <Route exact path="/" component={CheckWhatInDB} />
       <Route exact path="/all-posts" component={GetAllPosts} />

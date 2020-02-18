@@ -105,4 +105,37 @@ input#testId:hover{
   /* opacity: 0.2; */
   transition: all 0.5s ease-in-out;
 }
+ul {
+  margin: 30px auto;
+  padding-left: 0;
+  max-width: 600px;
+}
+ul hr {
+  border-bottom: 1px solid #FF4136;
+  box-shadow: 3px 5px 5px 2px rgba(255, 65, 54, 0.1);
+}
+@media screen and (max-width: 600px) {
+  ul {
+    background-color: transparent;
+    margin: 5%;
+  }
+}
+li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+.loader {
+  margin: 200px auto;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 

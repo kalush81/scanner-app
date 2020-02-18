@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+const heroURL = "https://myjson-demo.herokuapp.com";
+const localURL = "http://localhost:3001";
+
 export class GetAllPosts extends Component {
   state = {
     data: []
   };
   componentDidMount() {
     axios
-      .get("https://myjson-demo.herokuapp.com/certificate-listing")
+      .get(`${localURL}/certificate-listing`)
       .then(data => {
         console.log(data);
-        this.setState({ data: data.data });
+        setTimeout(()=>{this.setState({ data: data.data })},1000)
+        
       })
       .catch(err => console.error(err));
   }
@@ -18,14 +22,17 @@ export class GetAllPosts extends Component {
     const data = this.state.data;
     return (
       <div>
-        {data.map(post => (
+        {data.length > 0 ? data.map(post => (
           <ul key={post.id}>
-            <li>name: {post.name}</li>
-            <li>last name: {post.lastName}</li>
-            <li>certificate issued: {post.certificate}</li>
+            <li>name: &nbsp;&nbsp; {post.name}</li>
+            <li>last name: &nbsp;&nbsp; {post.lastName}</li>
+            <li>certificate issued: &nbsp;&nbsp; {post.certificate}</li>
             <hr></hr>
           </ul>
-        ))}
+        )) : <div>
+            <div className='loader'></div>
+            <p>...data is being loaded from the server</p>
+            </div>}
       </div>
     );
   }

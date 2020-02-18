@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import classes from "../styles.module.css";
 
 export class CheckWhatInDB extends Component {
 
@@ -8,7 +8,7 @@ export class CheckWhatInDB extends Component {
     return (
       <div>
         <Link to="all-posts">
-          <button>
+          <button className={classes.button}>
             go to see what's in the database
           </button>
         </Link>
