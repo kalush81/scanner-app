@@ -28,7 +28,7 @@ export default class GetScan extends Component {
   }
   render() {
     const previewStyle = {
-      margin: "auto auto",
+      margin: "100px auto",
       height: "330px",
       width: "330px",
       objectFit: "cover"
