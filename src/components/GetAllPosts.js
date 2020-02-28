@@ -10,7 +10,7 @@ export class GetAllPosts extends Component {
   };
   componentDidMount() {
     axios
-      .get(`${localURL}/certificate-listing`)
+      .get(`${heroURL}/certificate-listing`)
       .then(data => {
         console.log(data);
         setTimeout(()=>{this.setState({ data: data.data })},1000)

@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import axios from 'axios';
 
 const localUrl = "http://localhost:3001/post";
-const herokuUrl = "https://myjson-demo.herokuapp.com/post"
+const heroUrl = "https://myjson-demo.herokuapp.com/post"
 
 Modal.setAppElement("#root");
 
@@ -40,7 +40,7 @@ export class GenerateQr extends PureComponent {
   handleCLick = () => {
     this.setState({ getModal: false })
     console.log('data to be send', this.data)
-    axios.post(localUrl, this.data)
+    axios.post(heroUrl, this.data)
     .then(function (response) {
       console.log(response);
     })
