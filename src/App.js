@@ -6,8 +6,10 @@ import GetAllPosts from "./components/GetAllPosts";
 import Nav from "./components/Nav";
 import "./App.css";
 import styles from "./styles.module.css";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {ReactComponent as Logo} from './logo.svg'
+import classes from "./styles.module.css";
 
 function App() {
   const parentRef = useRef();
@@ -46,10 +48,17 @@ function App() {
           </Link>
         </div>
       </Nav>
+      <Logo className={classes.Logo}/>
+      <Switch>
       {state.generate && <GenerateQr ref={parentRef} />}
       {state.scann && <GetScan />}
       {/* <Route exact path="/checkDb" component={CheckWhatInDB} /> */}
       <Route exact path="/all-posts" component={GetAllPosts} />
+      <Route render={
+        () => <h1>Ups, not found</h1>
+      } />
+      </Switch>
+      
     </div>
   );
 }

@@ -40,7 +40,7 @@ export class GenerateQr extends PureComponent {
   handleCLick = () => {
     this.setState({ getModal: false })
     console.log('data to be send', this.data)
-    axios.post(heroUrl, this.data)
+    axios.post(localUrl, this.data)
     .then(function (response) {
       console.log(response);
     })
